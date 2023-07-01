@@ -1,0 +1,73 @@
+.body{
+    font-family: Yantramanav;
+}
+
+
+.background{
+    background:linear-gradient(0deg,  #655d68e2, #7e7d7d5e), url(background.jpg);
+    background-position: top;
+    background-size: cover;
+   
+}
+
+
+.container-heading{
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.heading{
+    font-weight: 600;
+    font-size: 90px;
+    color:  #e8e6e7;
+    padding-top: 200px;
+    text-shadow: 3px 4px 4px rgb(32, 32, 32);
+}
+
+.heading-text{
+    font-size: 30px;
+    color: #dfdbec;
+    padding-top: 50px;
+}
+
+.books{
+    background-color: white;
+    box-shadow: 1px 1px 5px 1px rgba(190, 187, 187, 0.756);
+    border-radius: 10px;
+    padding: 2%;
+    margin: 2%;
+    width: 75%;
+}
+.image{
+    border-radius: 7px;
+    padding: 5%;
+    text-align: center;
+}
+.img-books{
+    width: 80%;
+}
+.title{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+   
+}.year{
+    color: #605e5e;
+    text-align: center;
+}
+.authors{
+    color: #4186be;
+    background-color: #c3e1f9;
+    border-color:#c3e1f9 ;
+    border-radius: 7px;
+    padding: 2%;
+    text-align: center;
+    
+}
+.container-book{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(249, 232, 232);
+    padding: 5% 0;
+}
