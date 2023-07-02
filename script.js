@@ -32,11 +32,11 @@ const books = [
     const container = document.getElementById("container")
     books.forEach ((books) => {
       container.innerHTML += `
-
+<div class="list">
 <div class="books">
 <div class="image"><img class="img-books" src="${books.image}"></div>
 <div class="title">${books.title}</div>
 <div class="year">${books.year}</div>
 <div class="authors">${books.authors}</div>
-</div>
+</div></div>
 `})
