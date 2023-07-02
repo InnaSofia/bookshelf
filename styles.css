@@ -37,22 +37,32 @@
     border-radius: 10px;
     padding: 2%;
     margin: 2%;
-    width: 75%;
+    width: calc(85%);
+    text-align: center;
 }
+@media (max-width: 1024px){
+.books {
+    width: 85%;
+}
+}
+
+
 .image{
     border-radius: 7px;
     padding: 5%;
-    text-align: center;
+    
 }
 .img-books{
-    width: 80%;
+    width: 90%;
 }
 .title{
     font-size: 20px;
     font-weight: 600;
     text-align: center;
    
-}.year{
+}
+
+.year{
     color: #605e5e;
     text-align: center;
 }
@@ -65,9 +75,17 @@
     text-align: center;
     
 }
-.container-book{
+.book-container{
     display: flex;
-    justify-content: center;
+    flex-direction:  row;
+    justify-content: space-around;
     background-color: rgb(249, 232, 232);
     padding: 5% 0;
 }
+@media  (max-width: 877px) {
+    .book-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
