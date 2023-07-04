@@ -151,6 +151,40 @@
     margin-left: 20%;
     text-align: center;
 }
+@media (max-width: 850px) {
+    .conteiner-open{
+        width: 60%;
+    }
+    .navigation-button{
+        width: 60%;
+    }
+}
+
+@media (max-width: 570px) {
+    .conteiner-open{
+        width: 90%;
+        margin-left: 0;
+    }
+    .navigation-button{
+        width: 60%;
+        
+    }
+}
+
+@media (max-width: 375px) {
+    .navigation-button{
+        width: 80%;}
+       
+    }
+
+
+@media (max-width: 530px) {
+    
+    .navigation-button{
+       
+        
+    }
+}
 
 .inputStyles{
     appearance: none;
