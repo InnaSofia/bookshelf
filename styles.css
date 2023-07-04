@@ -24,6 +24,19 @@
     padding-top: 200px;
     text-shadow: 3px 4px 4px rgb(32, 32, 32);
 }
+.button-book{
+    appearance: none;
+    width: 150px;
+    background-color: #dbbaba;
+   border-radius: 7px;
+  border-color: #dbbaba;
+  padding: 0.5rem 0.75rem;
+  box-shadow: -1px 1px 3px rgb(170 170 170 / 78%), 0px 0px 3px rgba(76, 76, 76, 0.784);
+  margin-top: 2%;
+  color: #695555;
+  font-size: 15px;
+}
+
 
 @media  (max-width: 500px) {
     .heading{
@@ -116,4 +129,49 @@
 .list {
     width: calc(100% / 2);
 }
+}
+
+@media (max-width: 520px){
+    .list {
+        width: calc(100% / 1);
+    }
+    }
+
+.conteiner-open{
+    display: flex;
+    flex-direction: column;
+    background-color:#dcbfbf;
+    box-shadow: 1px 1px 5px 1px rgba(67, 67, 67, 0.756);
+    padding: 10px 0 40px 0;
+    border-radius: 7px;
+    width: 50%;
+    align-items: center;
+    position: fixed;
+    margin-top: 20%;
+    margin-left: 20%;
+    text-align: center;
+}
+
+.inputStyles{
+    appearance: none;
+    border-radius: 7px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    margin: 1% 0;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    width: 70%;
+}
+
+.bookHeading{
+    font-size: 35px;
+    color: #5a5658;
+    text-shadow: 1px 2px 2px rgba(128, 127, 127, 0.723);
+    margin: 4% 0;
+}
+
+.navigation-button{
+    display: flex;
+    gap: 10px
 }

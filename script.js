@@ -40,3 +40,23 @@ const books = [
 <div class="authors">${books.authors}</div>
 </div></div>
 `})
+
+let isOpen = false
+
+function openbooks(){
+    const myopenbooks = document.getElementById("myopenbooks")
+
+    if(isOpen){
+
+
+      myopenbooks.style.display = "none"
+        isOpen = false //важно указать
+//нужно закрыть
+    }else{
+
+      myopenbooks.style.display = "flex" 
+        isOpen = true //важно указать 
+// нужно открыть
+    }
+
+  }
