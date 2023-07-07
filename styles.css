@@ -48,7 +48,22 @@
     font-size: 30px;
     color: #dfdbec;
     padding-top: 50px;
+    animation: heading-textAnimation 4s linear 0s 1 normal none;
 }
+
+@keyframes heading-textAnimation {
+    0%{
+        opacity: 0;
+        transform: translateX(-900px);
+    }
+    100%{
+        opacity: 1;
+    transform: translateX(0);
+
+    }
+    
+}
+
 
 @media  (max-width: 500px) {
     .heading-text{
