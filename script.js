@@ -33,42 +33,72 @@ const books = [
     }
     ]
 
-    const container = document.getElementById("container")
-    books.forEach ((books) => {
+    
+
+
+
+
+
+// Находим все элементы
+const modalWindow = document.querySelector('#modalWindow');//находим модальное окно
+const addBookBtn = document.querySelector('#addBookBtn');//кнопка 'добавить книгу'
+const saveBookBtn = document.querySelector('#saveBookBtn');//кнопка 'сохранить книгу'
+const closeModalBtn = document.querySelector('#closeModalBtn');//кнопка 'закрыть модальное окно'
+
+
+
+addBookBtn.addEventListener('click',openModal )
+closeModalBtn.addEventListener('click', closeModal)
+
+function openModal(){
+  modalWindow.style.display = "flex"
+
+}
+function closeModal(){
+  modalWindow.style.display = "none"
+}
+
+function renderBooks(){
+  const container = document.getElementById("container")
+  closeModal
+  container.innerHTML = ''//когда в контейнере пусто
+    books.forEach ((book) => {//проходимся по каждому элементу массива и доб книгу
       container.innerHTML += `
 <div class="list">
 <div class="books">
-<div class="image"><img class="img-books" src="${books.image}"></div>
-<div class="title">${books.title}</div>
-<div class="year">${books.year}</div>
-<div class="authors">${books.authors}</div>
-<button onclick="deleteBook($(books.id))" class="button-book">Удалить</button>
+<div class="image"><img class="img-books" src="${book.image}"></div>
+<div class="title">${book.title}</div>
+<div class="year">${book.year}</div>
+<div class="authors">${book.authors}</div>
+<button id="deleteBook-${book.id}" class="button-book">Удалить</button>
 </div></div>
 `})
 
 
-function deleteBooks(id){
-//шаг 1 найти книгу
-const books = books.find((b) => {
-  return b.id === id
-})
-//индекс в массиве
-const booksIndex = books.indexOf(books)
+books.forEach((book) => {
 
-//удалить
-books.splice(booksIndex,1)
-//шаг4
-renderBooks
+  let deleteBookBtn = document.getElementById(`deleteBook-${books.id}`)
+  deleteBookBtn.addEventListener('click',() =>  deleteBook(book.id))
+
+
+})
 }
 
+function deleteBook(id){
+  //шаг 1 найти книгу
+  const bookDelete = books.find((b) => {
+    return b.id === id
+  })
+  //индекс в массиве
+  const booksIndex = books.indexOf(bookDelete)
+  
+  //удалить
+  books.splice(booksIndex,1)
+  //шаг4
+  renderBooks()
+  }
 
-// Находим все элементы
-const openbooks = document.querySelector('myopenbooks');
-const openbooks = document.querySelector('openbooks');
-const openlist = document.querySelector('openlist');
-const close = document.querySelector('close');
-
-
+/*
 //открытия модального окна
 function openbooks() {
   books.style.display = 'block';
@@ -76,12 +106,12 @@ function openbooks() {
 
 //закрытия модального окна
 function closebooks() {
-  books.style.display = 'none';
-}
+  buttonBook.style.display = 'none';
+}*/
 
 
 
-let isOpen = true
+/*let isOpen = true
 
 function openbooks(){
     const myopenbooks = document.getElementById("myopenbooks")
@@ -99,6 +129,6 @@ function openbooks(){
 // нужно открыть
     }
 
-  }
+  }*/
 
   
