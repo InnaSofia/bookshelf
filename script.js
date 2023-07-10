@@ -70,7 +70,7 @@ function renderBooks(){
 <div class="title">${book.title}</div>
 <div class="year">${book.year}</div>
 <div class="authors">${book.authors}</div>
-<button id="deleteBook-${book.id}" class="button-book">Удалить</button>
+<button onclick="deleteBook()" id="deleteBook-${book.id}" class="delete-book">Удалить</button>
 </div></div>
 `})
 
@@ -84,10 +84,42 @@ books.forEach((book) => {
 })
 }
 
+/*
+//массив для хранения книг
+let books = []
+
+//добавления новой книги
+function addBook(image, title, author, year) {
+  // Создаем объект с информацией о книге
+  let book = {
+    image: image,
+    title: title,
+    author: author,
+    year: year
+  }
+  books.push(books)
+  displayBooks()
+}
+// Функция для отображения книг на странице
+function displayBooks() {
+  bookList.innerHTML = ""
+  //элемент, в котором будем отображать книги
+  let container = document.getElementById("container")
+}
+  books.forEach((book) => {
+    // Создаем элемент списка для каждой книги
+    let container = document.createElement("li");
+    container.textContent = book.image + book.title + book.author + book.year
+    container.appendChild(container)   
+  })
+  */
+
+
+
 function deleteBook(id){
   //шаг 1 найти книгу
-  const bookDelete = books.find((b) => {
-    return b.id === id
+  const bookDelete = books.find((book) => {
+    return book.id === id
   })
   //индекс в массиве
   const booksIndex = books.indexOf(bookDelete)
@@ -98,37 +130,4 @@ function deleteBook(id){
   renderBooks()
   }
 
-/*
-//открытия модального окна
-function openbooks() {
-  books.style.display = 'block';
-}
-
-//закрытия модального окна
-function closebooks() {
-  buttonBook.style.display = 'none';
-}*/
-
-
-
-/*let isOpen = true
-
-function openbooks(){
-    const myopenbooks = document.getElementById("myopenbooks")
-
-    if(isOpen){
-
-
-      myopenbooks.style.display = "none"
-        isOpen = false //важно указать
-//нужно закрыть
-    }else{
-
-      myopenbooks.style.display = "flex" 
-        isOpen = true //важно указать 
-// нужно открыть
-    }
-
-  }*/
-
-  
+  renderBooks()
