@@ -53,18 +53,58 @@ function addBooks() {
   const bookYearValue = document.getElementById('bookYear').value
 
   const book = {
+  
+    id: id,
     bookImage: bookImageValue,
     bookTitle: bookTitleValue,
     bookAuthors: bookAuthorsValue,
     bookYear: bookYearValue
   }
-  books.push(book)
-  const booksJson = JSON.stringify(books)
-  localStorage.setItem('books', Json)
-  renderBooks()
 
+  books.push(book)
+  renderBooks()
+  clearForm()
+  closeModal()
+
+
+  const booksJson = JSON.stringify(books)
+  localStorage.setItem('books', booksJson)
 }
-saveBook.addEventListener('click', saveBook)
+
+/*
+//массив для хранения книг
+let books = []
+
+//добавления новой книги
+function addBook(image, title, author, year) {
+  // Создаем объект с информацией о книге
+  let book = {
+    image: image,
+    title: title,
+    author: author,
+    year: year
+  }
+  books.push(books)
+  displayBooks()
+}
+// Функция для отображения книг на странице
+function displayBooks() {
+  bookList.innerHTML = ""
+  //элемент, в котором будем отображать книги
+  let container = document.getElementById("container")
+}
+  books.forEach((book) => {
+    // Создаем элемент списка для каждой книги
+    let container = document.createElement("li");
+    container.textContent = book.image + book.title + book.author + book.year
+    container.appendChild(container)   
+  })
+  */
+
+
+
+const myButton = document.getElementById('saveBookBtn')
+myButton.addEventListener('click',addBooks )
 addBookBtn.addEventListener('click', openModal )
 closeModalBtn.addEventListener('click', closeModal)
 
@@ -105,35 +145,7 @@ books.forEach((book) => {
 })
 }
 
-/*
-//массив для хранения книг
-let books = []
 
-//добавления новой книги
-function addBook(image, title, author, year) {
-  // Создаем объект с информацией о книге
-  let book = {
-    image: image,
-    title: title,
-    author: author,
-    year: year
-  }
-  books.push(books)
-  displayBooks()
-}
-// Функция для отображения книг на странице
-function displayBooks() {
-  bookList.innerHTML = ""
-  //элемент, в котором будем отображать книги
-  let container = document.getElementById("container")
-}
-  books.forEach((book) => {
-    // Создаем элемент списка для каждой книги
-    let container = document.createElement("li");
-    container.textContent = book.image + book.title + book.author + book.year
-    container.appendChild(container)   
-  })
-  */
 
 
 
@@ -149,6 +161,9 @@ function deleteBook(id){
   books.splice(booksIndex,1)
   //шаг4
   renderBooks()
+
+  const booksJson = JSON.stringify(books)
+  localStorage.setItem('books', booksJson)
   }
 
   renderBooks()
