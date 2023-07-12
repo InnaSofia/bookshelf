@@ -40,14 +40,32 @@ const books = [
 
 
 // Находим все элементы
-const modalWindow = document.querySelector('#modalWindow');//находим модальное окно
-const addBookBtn = document.querySelector('#addBookBtn');//кнопка 'добавить книгу'
-const saveBookBtn = document.querySelector('#saveBookBtn');//кнопка 'сохранить книгу'
-const closeModalBtn = document.querySelector('#closeModalBtn');//кнопка 'закрыть модальное окно'
+const modalWindow = document.getElementById('modalWindow');//находим модальное окно
+const addBookBtn = document.getElementById('addBookBtn');//кнопка 'добавить книгу'
+const saveBookBtn = document.getElementById('saveBookBtn');//кнопка 'сохранить книгу'
+const closeModalBtn = document.getElementById('closeModalBtn');//кнопка 'закрыть модальное окно'
 
 
+function addBooks() {
+  const bookImageValue = document.getElementById('bookImage').value
+  const bookTitleValue = document.getElementById('bookTitle').value
+  const bookAuthorsValue = document.getElementById('bookAuthors').value
+  const bookYearValue = document.getElementById('bookYear').value
 
-addBookBtn.addEventListener('click',openModal )
+  const book = {
+    bookImage: bookImageValue,
+    bookTitle: bookTitleValue,
+    bookAuthors: bookAuthorsValue,
+    bookYear: bookYearValue
+  }
+  books.push(book)
+  const booksJson = JSON.stringify(books)
+  localStorage.setItem('books', Json)
+  renderBooks()
+
+}
+saveBook.addEventListener('click', saveBook)
+addBookBtn.addEventListener('click', openModal )
 closeModalBtn.addEventListener('click', closeModal)
 
 function openModal(){
@@ -57,6 +75,9 @@ function openModal(){
 function closeModal(){
   modalWindow.style.display = "none"
 }
+
+
+
 
 function renderBooks(){
   const container = document.getElementById("container")
