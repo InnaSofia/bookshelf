@@ -1,20 +1,21 @@
+let bookCounter = 1
 const books = [
     {
-      id:1,
+      id: bookCounter++,
       title: 'Design Patterns: Elements of Reusable Object-Oriented Software',
       authors: 'Erich Gamma, John Vlissides, Ralph Johnson, Richard Helm',
       year: '1994',
       image: 'https://images-na.ssl-images-amazon.com/images/I/81gtKoapHFL.jpg'
     },
     {
-      id:2,
+      id: bookCounter++,
       title: 'JavaScript: The Good Parts',
       authors: 'Douglas Crockford',
       year: '2008',
       image: 'https://images-na.ssl-images-amazon.com/images/I/81kqrwS1nNL.jpg'
     },
     {
-      id:3,
+      id: bookCounter++,
       title:
       'JavaScript Patterns: Build Better Applications with Coding and Design Patterns',
       authors: 'Stoyan Stefanov',
@@ -23,7 +24,7 @@ const books = [
       'https://images-na.ssl-images-amazon.com/images/I/51%2BSiphz7AL._SX377_BO1,204,203,200_.jpg'
     },
     {
-      id:4,
+      id: bookCounter++,
       title:
       'JavaScript: The Definitive Guide: Activate Your Web Pages (Definitive Guides)',
       authors: 'David Flanagan',
@@ -53,14 +54,13 @@ function addBooks() {
   const bookYearValue = document.getElementById('bookYear').value
 
   const book = {
-  
-    id: id,
+    id:bookCounter++,
     bookImage: bookImageValue,
     bookTitle: bookTitleValue,
     bookAuthors: bookAuthorsValue,
     bookYear: bookYearValue
   }
-
+  
   books.push(book)
   renderBooks()
   clearForm()
@@ -70,6 +70,7 @@ function addBooks() {
   const booksJson = JSON.stringify(books)
   localStorage.setItem('books', booksJson)
 }
+
 
 /*
 //массив для хранения книг

@@ -132,6 +132,12 @@
     background-color: rgb(249, 232, 232);
     padding: 5% 5%;
 }
+
+@media (max-width: 1200зч){
+.list {
+    width: calc(100% / 4);
+}
+}
 @media (max-width: 800px){
     .book-container{
     display: flex;
