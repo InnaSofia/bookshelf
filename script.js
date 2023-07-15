@@ -46,6 +46,9 @@ const addBookBtn = document.getElementById('addBookBtn');//кнопка 'доб�
 const saveBookBtn = document.getElementById('saveBookBtn');//кнопка 'сохранить книгу'
 const closeModalBtn = document.getElementById('closeModalBtn');//кнопка 'закрыть модальное окно'
 
+addBookBtn.addEventListener('click', openModal )//открывается модальное окно
+closeModalBtn.addEventListener('click', closeModal)//закрывается модальное окно
+saveBookBtn.addEventListener('click',addBooks)//сохраняет книгу
 
 function addBooks() {
   const bookImageValue = document.getElementById('bookImage').value
@@ -53,52 +56,47 @@ function addBooks() {
   const bookAuthorsValue = document.getElementById('bookAuthors').value
   const bookYearValue = document.getElementById('bookYear').value
 
+  if(bookImageValue === '' || bookTitleValue === '' || bookAuthorsValue === '' || bookYearValue === ''){
+
+    return
+  }
+ 
   const book = {
     id:bookCounter++,
-    bookImage: bookImageValue,
-    bookTitle: bookTitleValue,
-    bookAuthors: bookAuthorsValue,
-    bookYear: bookYearValue
+    image: bookImageValue,
+    title: bookTitleValue,
+    authors: bookAuthorsValue,
+    year: bookYearValue
   }
   
   books.push(book)
   renderBooks()
   clearForm()
   closeModal()
-
-
-  
+  saveBooksToLocalStoraga()
 }
 
-
+function clearForm(){
+  document.getElementById('bookImage').value = ''
+  document.getElementById('bookTitle').value =''
+  document.getElementById('bookAuthors').value =''
+  document.getElementById('bookYear').value =''
+}
 
 function saveBooksToLocalStoraga(){
   const booksJson = JSON.stringify(books)
   localStorage.setItem('books', booksJson)
 }
 
-
-const myButton = document.getElementById('saveBookBtn')
-myButton.addEventListener('click',addBooks )
-
-
-addBookBtn.addEventListener('click', openModal )
-closeModalBtn.addEventListener('click', closeModal)
-
 function openModal(){
   modalWindow.style.display = "flex"
-
 }
 function closeModal(){
   modalWindow.style.display = "none"
 }
 
-
-
-
+const container = document.getElementById("container")
 function renderBooks(){
-  const container = document.getElementById("container")
-  closeModal
   container.innerHTML = ''//когда в контейнере пусто
     books.forEach ((book) => {//проходимся по каждому элементу массива и доб книгу
       container.innerHTML += `
@@ -108,18 +106,21 @@ function renderBooks(){
 <div class="title">${book.title}</div>
 <div class="year">${book.year}</div>
 <div class="authors">${book.authors}</div>
-<button onclick="deleteBook()" id="deleteBook-${book.id}" class="delete-book">Удалить</button>
+<button id="deleteBook-${book.id}" class="delete-book">Удалить</button>
 </div></div>
 `})
 
 
 books.forEach((book) => {
 
-  let deleteBookBtn = document.getElementById(`deleteBook-${books.id}`)
-  deleteBookBtn.addEventListener('click',() =>  deleteBook(book.id))
-
+  let deleteBookBtn = document.getElementById(`deleteBook-${book.id}`)
+  deleteBookBtn.addEventListener('click',() =>  {
+    deleteBook(book.id)
+  })
 
 })
+
+ saveBooksToLocalStoraga()
 }
 
 
@@ -128,8 +129,8 @@ books.forEach((book) => {
 
 function deleteBook(id){
   //шаг 1 найти книгу
-  const bookDelete = books.find((book) => {
-    return book.id === id
+  const bookDelete = books.find((b) => {
+    return b.id === id
   })
   //индекс в массиве
   const booksIndex = books.indexOf(bookDelete)
@@ -138,7 +139,7 @@ function deleteBook(id){
   books.splice(booksIndex,1)
   //шаг4
   renderBooks()
-
+ saveBooksToLocalStoraga()
 
   }
 
