@@ -57,10 +57,8 @@ function addBooks() {
   const bookYearValue = document.getElementById('bookYear').value
 
   if(bookImageValue === '' || bookTitleValue === '' || bookAuthorsValue === '' || bookYearValue === ''){
-
     return
   }
- 
   const book = {
     id:bookCounter++,
     image: bookImageValue,
