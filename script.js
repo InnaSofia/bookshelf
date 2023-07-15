@@ -73,7 +73,7 @@ function addBooks() {
   renderBooks()
   clearForm()
   closeModal()
-  saveBooksToLocalStoraga()
+  saveBooksToLocalStorage()
 }
 
 function clearForm(){
@@ -83,7 +83,7 @@ function clearForm(){
   document.getElementById('bookYear').value =''
 }
 
-function saveBooksToLocalStoraga(){
+function saveBooksToLocalStorage(){
   const booksJson = JSON.stringify(books)
   localStorage.setItem('books', booksJson)
 }
@@ -120,7 +120,7 @@ books.forEach((book) => {
 
 })
 
- saveBooksToLocalStoraga()
+ saveBooksToLocalStorage()
 }
 
 
@@ -139,7 +139,7 @@ function deleteBook(id){
   books.splice(booksIndex,1)
   //шаг4
   renderBooks()
- saveBooksToLocalStoraga()
+ saveBooksToLocalStorage()
 
   }
 
