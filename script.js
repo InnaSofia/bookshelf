@@ -45,6 +45,7 @@ const modalWindow = document.getElementById('modalWindow');//находим мо
 const addBookBtn = document.getElementById('addBookBtn');//кнопка 'добавить книгу'
 const saveBookBtn = document.getElementById('saveBookBtn');//кнопка 'сохранить книгу'
 const closeModalBtn = document.getElementById('closeModalBtn');//кнопка 'закрыть модальное окно'
+const editBookBtn = document.getElementById('editBookBtn');//кнопка 'редактировать книгу'
 
 addBookBtn.addEventListener('click', openModal )//открывается модальное окно
 closeModalBtn.addEventListener('click', closeModal)//закрывается модальное окно
@@ -105,6 +106,7 @@ function renderBooks(){
 <div class="year">${book.year}</div>
 <div class="authors">${book.authors}</div>
 <button id="deleteBook-${book.id}" class="delete-book">Удалить</button>
+<button id="editBookBtn" class="delete-book">Редактировать</button>
 </div></div>
 `})
 
