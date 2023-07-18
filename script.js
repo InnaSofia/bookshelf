@@ -55,20 +55,21 @@ closeModalBtn.addEventListener('click', closeModal)//закрывается мо
 saveBookBtn.addEventListener('click',addBooks)//сохраняет книгу
 
 
-
+//
 const modalChange = document.getElementById('modalChange');//находим окно редактировать книгу
 const editBook = document.getElementById('editBook');//кнопка 'редактировать книгу'(открывает окно редактировать)
 const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
 
 
-openChange.addEventListener('click', openChange )//открывается окно изменить
-closeChange.addEventListener('click',closeChange )//закрывает окно изменить
+editBook.addEventListener('click', windowChange )//открывается окно изменить
+closeChange.addEventListener('click',closeWindow )//закрывает окно изменить
 
-
-function openModalChange(){
+//открыть
+function windowChange(){
   modalChange.style.display = "flex"
 }
-function closeModalChange(){
+//закрыть
+function closeWindow(){
   modalChange.style.display = "none"
 }
 
