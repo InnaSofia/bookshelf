@@ -49,21 +49,21 @@ const editBookBtn = document.getElementById('editBookBtn');//кнопка 'ре�
 
 
 const modalChange = document.getElementById('modalChange');//находим окно редактировать книгу
-const aeditBook = document.getElementById('editBook');//кнопка 'редактировать книгу'(открывает окно редактировать)
+const editBook = document.getElementById('editBook');//кнопка 'редактировать книгу'(открывает окно редактировать)
 const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
 
 addBookBtn.addEventListener('click', openModal )//открывается модальное окно
 closeModalBtn.addEventListener('click', closeModal)//закрывается модальное окно
 saveBookBtn.addEventListener('click',addBooks)//сохраняет книгу
 
-addBookBtn.addEventListener('click', openChange )//открывается окно изменить
-closeChange.addEventListener('click',closeChange )
+openChange.addEventListener('click', openChange )//открывается окно изменить
+closeChange.addEventListener('click',closeChange )//закрывает окно изменить
 
 
-function openChange(){
+function openModalChange(){
   modalChange.style.display = "flex"
 }
-function closeChange(){
+function closeModalChange(){
   modalChange.style.display = "none"
 }
 
