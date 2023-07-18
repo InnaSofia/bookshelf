@@ -47,9 +47,27 @@ const saveBookBtn = document.getElementById('saveBookBtn');//кнопка 'со�
 const closeModalBtn = document.getElementById('closeModalBtn');//кнопка 'закрыть модальное окно'
 const editBookBtn = document.getElementById('editBookBtn');//кнопка 'редактировать книгу'
 
+
+const modalChange = document.getElementById('modalChange');//находим окно редактировать книгу
+const aeditBook = document.getElementById('editBook');//кнопка 'редактировать книгу'(открывает окно редактировать)
+const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
+
 addBookBtn.addEventListener('click', openModal )//открывается модальное окно
 closeModalBtn.addEventListener('click', closeModal)//закрывается модальное окно
 saveBookBtn.addEventListener('click',addBooks)//сохраняет книгу
+
+addBookBtn.addEventListener('click', openChange )//открывается окно изменить
+closeChange.addEventListener('click',closeChange )
+
+
+function openChange(){
+  modalChange.style.display = "flex"
+}
+function closeChange(){
+  modalChange.style.display = "none"
+}
+
+
 
 function addBooks() {
   const bookImageValue = document.getElementById('bookImage').value
@@ -105,8 +123,10 @@ function renderBooks(){
 <div class="title">${book.title}</div>
 <div class="year">${book.year}</div>
 <div class="authors">${book.authors}</div>
+<div class="button-position">
 <button id="deleteBook-${book.id}" class="delete-book">Удалить</button>
-<button id="editBookBtn" class="delete-book">Редактировать</button>
+<button id="editBook" class="delete-book">Редактировать</button>
+</div>
 </div></div>
 `})
 
