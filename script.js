@@ -61,7 +61,39 @@ const editBook = document.getElementById('editBook');//кнопка 'редак�
 const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
 
 
-editBook.addEventListener('click', windowChange )//открывается окно изменить
+const book = document.getElementById("book");//находим книгу по id
+const bookTitleInput = book.getElementById(".bookTitle input");//заголовок
+const bookAuthorsInput = book.getElementById(".bookAuthors input");//автор
+const bookYearInput = book.getElementById(".bookYear input");//год
+const bookImageInput = book.getElementById(".bookImage input");//картинка
+
+
+function changeBook(){
+  const bookTitle = bookTitleInput.value;
+  const bookAuthors = bookAuthorsInput.value;
+  const bookYear = bookYearInput.value;
+  const bookImage = bookImageInput.value;//все значения внутри input
+
+  book.getElementsById(".bookTitle") = title;// обновляем информацию о книге
+  book.getElementsById(".bookAuthors") = authors;
+  book.getElementsById(".bookYear") = year;
+  book.getElementsById(".bookImage") = image;
+}
+bookTitleInput.addEventListener("change", updateBook);// добавляем обработчик события
+bookAuthors.addEventListener("change",updateBook);
+bookYear.addEventListener("change", updateBook);
+bookImage.addEventListener("change", updateBook);
+
+
+const updateBook = document.getElementById('updateBook');//кнопка обновить книгу
+
+function updateBook(){
+const bookTitleValue = bookTitleInput.value;
+const  bookAuthorsValue = bookAuthorsInput.value;
+const bookYearValue = bookYearInput.value;
+const bookImageValue = bookImageInput.value;
+}
+
 closeChange.addEventListener('click',closeWindow )//закрывает окно изменить
 
 //открыть
@@ -133,6 +165,7 @@ function renderBooks(){
 <div class="button-position">
 <button id="deleteBook-${book.id}" class="delete-book">Удалить</button>
 <button id="editBook" class="delete-book">Редактировать</button>
+<button id="updateBook" class="delete-book">Обновить</button>
 </div>
 </div></div>
 `})
