@@ -67,6 +67,7 @@ closeChange.addEventListener('click',closeWindow )//закрывает окно 
 //открыть
 function windowChange(){
   modalChange.style.display = "flex"
+  
 }
 //закрыть
 function closeWindow(){
