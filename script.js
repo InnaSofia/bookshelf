@@ -62,6 +62,11 @@ const closeChange = document.getElementById('closeChange');//кнопка 'за�
 
 
 
+
+
+
+
+/*/
 const bookTitleInput = document.getElementById("bookTitle").value = book.title;//заголовок
 const bookAuthorsInput = document.getElementById("bookAuthors").value = book.authors;//автор
 const bookYearInput = document.getElementById("bookYear").value = book.year;//год
@@ -74,10 +79,10 @@ function changeBook(){
   const bookYear = bookYearInput.value;
   const bookImage = bookImageInput.value;//все значения внутри input
 
-  bookTitle.getElementsById(".bookTitle") = title;// обновляем информацию о книге
-  bookAuthors.getElementsById(".bookAuthors") = authors;
-  bookYear.getElementsById(".bookYear") = year;
-  bookImage.getElementsById(".bookImage") = image;
+  bookTitle.getElementById(".bookTitle") = title;// обновляем информацию о книге
+  bookAuthors.getElementById(".bookAuthors") = authors;
+  bookYear.getElementById(".bookYear") = year;
+  bookImage.getElementById(".bookImage") = image;
 }
 bookTitleInput.addEventListener("change", updateBook);// добавляем обработчик события
 bookAuthors.addEventListener("change",updateBook);
@@ -95,6 +100,8 @@ const bookImageValue = bookImageInput.value;
 }
 
 closeChange.addEventListener('click',closeWindow )//закрывает окно изменить
+
+/*/
 
 //открыть
 function windowChange(){
@@ -164,8 +171,7 @@ function renderBooks(){
 <div class="authors">${book.authors}</div>
 <div class="button-position">
 <button id="deleteBook-${book.id}" class="delete-book">Удалить</button>
-<button id="editBook" class="delete-book">Редактировать</button>
-<button id="updateBook" class="delete-book">Обновить</button>
+<button id="editBook-${book.id}" class="delete-book">Редактировать</button>
 </div>
 </div></div>
 `})
