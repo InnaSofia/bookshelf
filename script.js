@@ -61,11 +61,11 @@ const editBook = document.getElementById('editBook');//кнопка 'редак�
 const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
 
 
-const book = document.getElementById("book");//находим книгу по id
-const bookTitleInput = book.getElementById(".bookTitle input");//заголовок
-const bookAuthorsInput = book.getElementById(".bookAuthors input");//автор
-const bookYearInput = book.getElementById(".bookYear input");//год
-const bookImageInput = book.getElementById(".bookImage input");//картинка
+
+const bookTitleInput = document.getElementById("bookTitle").value = book.title;//заголовок
+const bookAuthorsInput = document.getElementById("bookAuthors").value = book.authors;//автор
+const bookYearInput = document.getElementById("bookYear").value = book.year;//год
+const bookImageInput = document.getElementById("bookImage").value = book.image;//картинка
 
 
 function changeBook(){
@@ -74,10 +74,10 @@ function changeBook(){
   const bookYear = bookYearInput.value;
   const bookImage = bookImageInput.value;//все значения внутри input
 
-  book.getElementsById(".bookTitle") = title;// обновляем информацию о книге
-  book.getElementsById(".bookAuthors") = authors;
-  book.getElementsById(".bookYear") = year;
-  book.getElementsById(".bookImage") = image;
+  bookTitle.getElementsById(".bookTitle") = title;// обновляем информацию о книге
+  bookAuthors.getElementsById(".bookAuthors") = authors;
+  bookYear.getElementsById(".bookYear") = year;
+  bookImage.getElementsById(".bookImage") = image;
 }
 bookTitleInput.addEventListener("change", updateBook);// добавляем обработчик события
 bookAuthors.addEventListener("change",updateBook);
