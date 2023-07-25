@@ -145,6 +145,9 @@ function openUpdateModal(id){
   document.getElementById("bookAuthorsUpdate").value = book.authors;
   document.getElementById("bookYearUpdate").value = book.year;
   document.getElementById("bookImageUpdate").value = book.image;
+
+  const update =document.getElementById('changeBook')
+  update.addEventListener('click',MakeUpdateBook)
 }
 
 
