@@ -92,8 +92,10 @@ function changeBook(){
 //bookImage.addEventListener("change", updateBook);
 
 
-const updateBook = document.getElementById('updateBook');//кнопка обновить книгу
-
+const update = document.getElementById('changeBook');//кнопка обновить книгу
+update.addEventListener("click", () => {
+  MakeUpdateBook(id)
+})
 
 //функция обновления книги
 function MakeUpdateBook(id){
@@ -107,7 +109,8 @@ const updateImage = document.getElementById('bookImageUpdate').value
 const updateBook = {
   id: id,
   title:updateTitle,
-  authors: updateYear,
+  authors: updateAuthors,
+  year: updateYear,
   image: updateImage
 }
 
