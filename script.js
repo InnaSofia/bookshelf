@@ -46,14 +46,18 @@ const closeModalBtn = document.getElementById('closeModalBtn');//кнопка '�
 // Находим все элементы для обновления книги
 const modalChange = document.getElementById('modalChange');//находим окно редактировать книгу
 const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
-
+const updateBookBtn = document.getElementById('changeBook');//кнопка обновить книгу
 
 addBookBtn.addEventListener('click', openModal )//открывается модальное окно
 closeModalBtn.addEventListener('click', closeModal)//закрывается модальное окно
 saveBookBtn.addEventListener('click',addBooks)//сохраняет книгу
 
+
+updateBookBtn.addEventListener('click', changeBook);//обновляет
+closeChange.addEventListener('click', closeWindow );//закрывает окно обновить
+
 //находим обновленные элементы книги в инпуте
-const bookTitleInput = document.getElementById("bookTitleUpdate");//заголовок
+const bookTitleInput = document.getElementById("bookTitleUpdate");//заголовок ПРОПИСАНЫ в мод окне id
 const bookAuthorsInput = document.getElementById("bookAuthorsUpdate");//автор
 const bookYearInput = document.getElementById("bookYearUpdate");//год
 const bookImageInput = document.getElementById("bookImageUpdate");//картинка
@@ -84,9 +88,7 @@ closeWindow()//закрывает модальное окно измененно
 
 
 
-const updateBookBtn = document.getElementById('changeBook');//кнопка обновить книгу
-updateBookBtn.addEventListener("click", changeBook);//изменить
-closeChange.addEventListener('click', closeWindow );//закрывает окно изменить
+
 
 
 //открыть модально окно новое для изменений данных
