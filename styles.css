@@ -321,4 +321,6 @@ input:after{
 
 #error{
     display: none;
+    color: #8b0101;
+    flex-direction: column;
 }

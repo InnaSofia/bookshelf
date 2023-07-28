@@ -60,7 +60,7 @@ const bookImageInput = document.getElementById("bookImageUpdate");//картин
 
 
 
-
+//функция обновления книги
 function changeBook(){
 
   const bookTitle = bookTitleInput.value;
@@ -76,9 +76,9 @@ updateBook.title = bookTitle
 updateBook.authors = bookAuthors
 updateBook.year = bookYear
 updateBook.image = bookImage
-closeModal()
-renderBooks()
-closeWindow()
+closeModal()//закрыть окно
+renderBooks()//функ показывать все книги
+closeWindow()//закрывает модальное окно измененное
 
 }
 
@@ -156,12 +156,14 @@ function saveBooksToLocalStorage(){
 function openModal(){
   modalWindow.style.display = "flex"
 }
+//закрыть окно
 function closeModal(){
   modalWindow.style.display = "none"
 }
 
 
 const container = document.getElementById("container")
+//функ показывать все книги
 function renderBooks(){
   container.innerHTML = ''//когда в контейнере пусто
     books.forEach ((book) => {//проходимся по каждому элементу массива и доб книгу
