@@ -321,6 +321,10 @@ input:after{
 
 #error{
     display: none;
-    color: #8b0101;
+    color: #a04242;
     flex-direction: column;
+    font-family:Georgia, serif;
+    margin: 3% 0;
+    font-size: 20px;
+    font-weight: 600;
 }
