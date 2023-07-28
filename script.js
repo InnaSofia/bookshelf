@@ -36,100 +36,57 @@ const books = [
     }
     ]
 
-    
-
-
-
-
-
-// Находим все элементы
+  
+// Находим все элементы для добавления книги
 const modalWindow = document.getElementById('modalWindow');//находим модальное окно
 const addBookBtn = document.getElementById('addBookBtn');//кнопка 'добавить книгу'
 const saveBookBtn = document.getElementById('saveBookBtn');//кнопка 'сохранить книгу'
 const closeModalBtn = document.getElementById('closeModalBtn');//кнопка 'закрыть модальное окно'
-const editBookBtn = document.getElementById('editBookBtn');//кнопка 'редактировать книгу'
 
-
+// Находим все элементы для обновления книги
+const modalChange = document.getElementById('modalChange');//находим окно редактировать книгу
+const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
 
 
 addBookBtn.addEventListener('click', openModal )//открывается модальное окно
 closeModalBtn.addEventListener('click', closeModal)//закрывается модальное окно
 saveBookBtn.addEventListener('click',addBooks)//сохраняет книгу
 
-
-//
-const modalChange = document.getElementById('modalChange');//находим окно редактировать книгу
-const editBook = document.getElementById('editBook');//кнопка 'редактировать книгу'(открывает окно редактировать)
-const closeChange = document.getElementById('closeChange');//кнопка 'закрыть модальное окно,изменить книгу'
-
-
+//находим обновленные элементы книги в инпуте
+const bookTitleInput = document.getElementById("bookTitleUpdate");//заголовок
+const bookAuthorsInput = document.getElementById("bookAuthorsUpdate");//автор
+const bookYearInput = document.getElementById("bookYearUpdate");//год
+const bookImageInput = document.getElementById("bookImageUpdate");//картинка
 
 
-
-
-
-const book = document.getElementById('book')
-const bookTitleInput = document.getElementById(".bookTitle input");//заголовок
-const bookAuthorsInput = document.getElementById(".bookAuthors input");//автор
-const bookYearInput = document.getElementById(".bookYear input");//год
-const bookImageInput = document.getElementById(".bookImage input");//картинка
 
 
 function changeBook(){
+
   const bookTitle = bookTitleInput.value;
   const bookAuthors = bookAuthorsInput.value;
   const bookYear = bookYearInput.value;
   const bookImage = bookImageInput.value;//все значения внутри input
+//по id ищем текущюю книгу(currentBookId),которую обновляем
 
-  document.getElementById(".bookTitle") = title;// обновляем информацию о книге
-  bodocument.getElementById(".bookAuthors") = authors;
-  document.getElementById(".bookYear") = year;
-  document.getElementById(".bookImage") = image;
-}
-//bookTitleInput.addEventListener("change", updateBook);// добавляем обработчик события
-//bookAuthors.addEventListener("change",updateBook);
-//bookYear.addEventListener("change", updateBook);
-//bookImage.addEventListener("change", updateBook);
+const updateBook = books.find((book) => book.id === currentBookId)
 
-
-const update = document.getElementById('changeBook');//кнопка обновить книгу
-update.addEventListener("click", () => {
-  MakeUpdateBook(id)
-})
-
-//функция обновления книги
-function MakeUpdateBook(id){
-
-
-const updateTitle = document.getElementById('bookTitleUpdate').value
-const updateAuthors = document.getElementById('bookAuthorsUpdate').value
-const updateYear = document.getElementById('bookYearUpdate').value
-const updateImage = document.getElementById('bookImageUpdate').value
-//создаем книгу с обновленными данными
-const updateBook = {
-  id: id,
-  title:updateTitle,
-  authors: updateAuthors,
-  year: updateYear,
-  image: updateImage
-}
-
-const book = book.find((b) => {//находим книгу по id
-  return b.id === id
-})
-
-const booksIndex = books.indexOf(book)//индекс книги
-
-books.splice(booksIndex, 1, updateBook)//удаляем книгу из массива
+//находим значения (const bookTitle...)
+updateBook.title = bookTitle
+updateBook.authors = bookAuthors
+updateBook.year = bookYear
+updateBook.image = bookImage
+closeModal()
 renderBooks()
-saveBooksToLocalStorage()
 closeWindow()
 
 }
 
-closeChange.addEventListener('click',closeWindow )//закрывает окно изменить
 
 
+const updateBookBtn = document.getElementById('changeBook');//кнопка обновить книгу
+updateBookBtn.addEventListener("click", changeBook);//изменить
+closeChange.addEventListener('click', closeWindow );//закрывает окно изменить
 
 
 //открыть модально окно новое для изменений данных
@@ -137,14 +94,14 @@ function openUpdateModal(id){
   currentBookId = id
 
   modalChange.style.display = "flex"
-  const book = books.find(book => {
+  const bookUpdate = books.find(book => {
     return book.id === id
   })
 
-  document.getElementById("bookTitleUpdate").value = book.title;// обновляем информацию о книге
-  document.getElementById("bookAuthorsUpdate").value = book.authors;
-  document.getElementById("bookYearUpdate").value = book.year;
-  document.getElementById("bookImageUpdate").value = book.image;
+  document.getElementById("bookTitleUpdate").value = bookUpdate.title;// обновляем информацию о книге
+  document.getElementById("bookAuthorsUpdate").value = bookUpdate.authors;
+  document.getElementById("bookYearUpdate").value = bookUpdate.year;
+  document.getElementById("bookImageUpdate").value = bookUpdate.image;
 
   const update =document.getElementById('changeBook')
   update.addEventListener('click',MakeUpdateBook)
