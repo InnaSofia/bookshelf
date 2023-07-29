@@ -44,16 +44,16 @@
 .button-position{
     display: flex;
     flex-direction: column;
-    
+    gap: 3px;
 }
 
 .delete-book{
     appearance: none;
     background-color: #e0fdf3;
-    border-radius: 7px;
-    border-color: #e0fdf3;
+    border-radius: 50px;
+    border: 1px solid #e0fdf3;
     padding: 0.5rem 0.75rem;
-    box-shadow: -1px 1px 3px rgb(170 170 170 / 34%), 0px 0px 3px rgb(76 76 76 / 54%);
+    box-shadow: inset 5px 4px 4px 0px rgb(210 246 234), inset -4px -5px 9px 1px rgb(195 223 214 / 83%);
     margin-top: 2%;
     color: #272424;
     font-size: 15px;
@@ -95,17 +95,22 @@
 
 .books{
     background-color: white;
-    box-shadow: 1px 1px 5px 1px rgba(190, 187, 187, 0.756);
     border-radius: 10px;
-    padding: 2%;
+    padding: 7%;
     margin: 2%;
     width: calc(85%);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: inset -1px -1px 5px 1px rgba(190, 187, 187, 0.756), inset 1px -1px 5px 1px rgba(190, 187, 187, 0.756),2px 2px 2px 1px rgb(189 189 189 / 24%);
 }
-
+@media (max-width:510px) {
+    .books{
+        width: calc(55%);
+        padding: 7%;
+    }
+}
 
 .image{
     border-radius: 7px;
