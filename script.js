@@ -228,7 +228,7 @@ function deleteBook(id){
   renderBooks()
 
   Swal.fire({
-    title: 'Приветствую вас в библиотеке',
+    title: 'Приветствую вас в библиотеке!',
     text: "Добавишь свою книгу?",
     icon: 'warning',
     showCancelButton: false,
