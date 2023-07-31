@@ -231,14 +231,14 @@ function deleteBook(id){
     title: 'Приветствую вас в библиотеке!',
     text: "Добавишь свою книгу?",
     icon: 'warning',
-    showCancelButton: false,
+    showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
     confirmButtonText: 'Да!'
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire(
-        'Да!',
+        'Я рада!',
         'Добавляй свои книги.',
         'success'
       )
