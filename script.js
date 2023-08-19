@@ -73,6 +73,11 @@ function changeBook(){
   const bookImage = bookImageInput.value;//все значения внутри input
 //по id ищем текущюю книгу(currentBookId),которую обновляем
 
+if(bookTitle === '' || bookAuthors === '' || bookYear === '' || bookImage === ''){
+  document.getElementById('errorUpdateModal').style.display = 'flex'
+  return
+}
+
 const updateBook = books.find((book) => book.id === currentBookId)
 
 //находим значения (const bookTitle...)
@@ -106,7 +111,7 @@ function openUpdateModal(id){
   document.getElementById("bookImageUpdate").value = bookUpdate.image;
 
   const update =document.getElementById('changeBook')
-  update.addEventListener('click',MakeUpdateBook)
+  update.addEventListener('click',changeBook)
 }
 
 

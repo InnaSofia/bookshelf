@@ -324,7 +324,7 @@ input:after{
     justify-content: space-evenly;
 }
 
-#error{
+#error, #errorUpdateModal{
     display: none;
     color: #a04242;
     flex-direction: column;
