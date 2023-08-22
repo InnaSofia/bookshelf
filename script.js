@@ -129,10 +129,29 @@ function addBooks() {
   const bookYearValue = document.getElementById('bookYear').value
 
   //если введены не все данные
-  if(bookImageValue === '' || bookTitleValue === '' || bookAuthorsValue === '' || bookYearValue === ''){
+  /* if(bookImageValue === ''  || bookTitleValue === '' || bookAuthorsValue === '' || bookYearValue === '' ){
     document.getElementById('error').style.display = 'flex'
     return
-  }
+  } */
+  if(bookTitle === ''){
+    document.getElementById('errorName').innerHTML = '<p>Заполните имя</p>'
+    return
+    }
+    if(bookTitleValue === ''){
+      document.getElementById('errorAuthors').innerHTML = '<p>Заполните автора</p>'
+      
+    }
+    if(bookTitleValue === ''){
+      document.getElementById('errorYear').innerHTML = '<p>Заполните год</p>'
+      
+    }
+    if(bookTitleValue === ''){
+      document.getElementById('errorImage').innerHTML = '<p>Вставьте ссылку на изображение</p>'
+     
+    }
+     
+    
+    
   const book = {
     id:bookCounter++,
     image: bookImageValue,
@@ -153,6 +172,13 @@ function clearForm(){
   document.getElementById('bookTitle').value =''
   document.getElementById('bookAuthors').value =''
   document.getElementById('bookYear').value =''
+
+  /* 
+  
+  document.getElementById('bookImage').innerHTML = ''
+  document.getElementById('bookTitle').innerHTML = ''
+  document.getElementById('bookAuthors').innerHTML = ''
+  document.getElementById('bookYear').innerHTML = '' */
 }
 
 function saveBooksToLocalStorage(){
@@ -232,7 +258,7 @@ function deleteBook(id){
 
   renderBooks()
 
-  Swal.fire({
+ /*  Swal.fire({
     title: 'Приветствую вас в библиотеке!',
     text: "Добавишь свою книгу?",
     icon: 'warning',
@@ -248,4 +274,4 @@ function deleteBook(id){
         'success'
       )
     }
-  })
+  }) */

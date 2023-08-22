@@ -29,10 +29,15 @@
     <div class="open-content">
     <div class="bookHeading">Введите данные</div>
     <input id="bookTitle" class="inputStyles" placeholder="Имя книги"/>
+    <!-- <p class="error" id="error">*Заполните имя книги</p> -->
+    <p id="errorName"></p>
     <input id="bookAuthors" class="inputStyles" placeholder="Автор книги"/>
+    <p id="errorAuthors"></p>
     <input id="bookYear" class="inputStyles" placeholder="Год публикации"/>
+    <p id="errorYear"></p>
     <input id="bookImage" class="inputStyles" placeholder="Ссылка на изображение"/>
-    <p class="error" id="error">*Заполните все поля</p>
+    <p id="errorImage"></p>
+    
 <div class="navigation-button">
     <button class="button-book" id="saveBookBtn">Сохранить</button>
     <button class="button-book" id="closeModalBtn">Закрыть</button>
