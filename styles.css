@@ -264,7 +264,6 @@ width: 80%;
     }
 
 
-
 .inputStyles{
     appearance: none;
     border-radius: 7px;
@@ -332,3 +331,10 @@ input:after{
     font-size: 20px;
     font-weight: 200;
 }
+
+.inputError{
+    border: 2px solid #9d0000;
+    background-color: #fcf1f1;
+   
+}
+
