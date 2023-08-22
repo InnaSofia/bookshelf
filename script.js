@@ -123,6 +123,7 @@ function closeWindow(){
 
 //функция показывать ошибку
 function showError(id){
+
   
   document.getElementById(id).classList.add('errorRed')
   document.getElementById('errorTitle').innerHTML = '<p class="errorRed">* Заполните имя</p>'
@@ -139,7 +140,14 @@ function hideError(id){
   document.getElementById('errorImage').innerHTML = ''
 }
 
-
+//стиль ошибки показывает поле input
+function stylesChange(id){
+  document.getElementById(id).classList.add('inputError')
+}
+//стиль ошибки прячет поле input
+function inputHide(id){
+  document.getElementById(id).classList.remove('inputError')//должна убирать поле ошибки input
+}
 
 //получаем значения из полей ввода данных модального окна
 function addBooks() {
@@ -158,31 +166,39 @@ function addBooks() {
   //если введены не все данные ошибки по очереди если что-то не введено
   if(bookTitleValue === ''){
     document.getElementById('errorTitle').innerHTML = '<p class="errorRed">* Заполните имя</p>'
+    stylesChange('bookTitle')
 
     return
     }else{
       hideError('errorTitle')
+      inputHide('bookTitle')
     }
 
     if(bookAuthorsValue === ''){
       document.getElementById('errorAuthors').innerHTML = '<p class="errorRed">* Заполните автора</p>'
+      stylesChange('bookAuthors')
       return
     }else{
       hideError('errorAuthors')
+      inputHide('bookAuthors')
     }
 
     if(bookYearValue === ''){
       document.getElementById('errorYear').innerHTML = '<p class="errorRed">* Заполните год</p>'
+      stylesChange('bookYear')
       return
     }else{
       hideError('errorYear')
+      inputHide('bookYear')
     }
 
     if(bookImageValue === ''){
       document.getElementById('errorImage').innerHTML = '<p class="errorRed">* Вставьте ссылку на изображение</p>'
+      stylesChange('bookImage')
       return
     } else{
       hideError('errorImage')
+      inputHide('bookImage')
     }
      
     
