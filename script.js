@@ -119,6 +119,23 @@ function openUpdateModal(id){
 function closeWindow(){
   modalChange.style.display = "none"
 }
+//функция показывать ошибку
+function showError(id){
+  document.getElementById(id).classList.add('errorRed')
+  document.getElementById('errorTitle').innerHTML = '<p class="errorRed">* Заполните имя</p>'
+  document.getElementById('errorAuthors').innerHTML = '<p class="errorRed">* Заполните автора</p>'
+  document.getElementById('errorYear').innerHTML = '<p class="errorRed">* Заполните год</p>'
+  document.getElementById('erroImage').innerHTML = '<p class="errorRed">* Вставьте ссылку на изображение</p>'
+}
+//функция скрывать ошибку
+function hideError(id){
+  document.getElementById(id).classList.remove('errorRed')
+  document.getElementById('errorTitle').innerHTML = ''
+  document.getElementById('errorAuthors').innerHTML = ''
+  document.getElementById('errorYear').innerHTML = ''
+  document.getElementById('errorImage').innerHTML = ''
+}
+
 
 
 //получаем значения из полей ввода данных модального окна
@@ -128,26 +145,40 @@ function addBooks() {
   const bookAuthorsValue = document.getElementById('bookAuthors').value
   const bookYearValue = document.getElementById('bookYear').value
 
-  //если введены не все данные
+
+  //если введены не все данные вместе
   /* if(bookImageValue === ''  || bookTitleValue === '' || bookAuthorsValue === '' || bookYearValue === '' ){
     document.getElementById('error').style.display = 'flex'
     return
   } */
-  if(bookTitle === ''){
-    document.getElementById('errorName').innerHTML = '<p>Заполните имя</p>'
+
+  //если введены не все данные ошибки по очереди если что-то не введено
+  if(bookTitleValue === ''){
+    document.getElementById('errorTitle').innerHTML = '<p class="errorRed">* Заполните имя</p>'
     return
+    }else{
+      hideError('errorTitle')
     }
-    if(bookTitleValue === ''){
-      document.getElementById('errorAuthors').innerHTML = '<p>Заполните автора</p>'
-      
+
+    if(bookAuthorsValue === ''){
+      document.getElementById('errorAuthors').innerHTML = '<p class="errorRed">* Заполните автора</p>'
+      return
+    }else{
+      hideError('errorAuthors')
     }
-    if(bookTitleValue === ''){
-      document.getElementById('errorYear').innerHTML = '<p>Заполните год</p>'
-      
+
+    if(bookYearValue === ''){
+      document.getElementById('errorYear').innerHTML = '<p class="errorRed">* Заполните год</p>'
+      return
+    }else{
+      hideError('errorYear')
     }
-    if(bookTitleValue === ''){
-      document.getElementById('errorImage').innerHTML = '<p>Вставьте ссылку на изображение</p>'
-     
+
+    if(bookImageValue === ''){
+      document.getElementById('errorImage').innerHTML = '<p class="errorRed">* Вставьте ссылку на изображение</p>'
+      return
+    } else{
+      hideError('errorImage')
     }
      
     

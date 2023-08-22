@@ -326,3 +326,8 @@ input:after{
     font-size: 20px;
     font-weight: 600;
 }
+.errorRed{
+    color: #cd1f1f;
+    font-size: 20px;
+    font-weight: 200;
+}
