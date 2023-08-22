@@ -119,8 +119,11 @@ function openUpdateModal(id){
 function closeWindow(){
   modalChange.style.display = "none"
 }
+
+
 //функция показывать ошибку
 function showError(id){
+  
   document.getElementById(id).classList.add('errorRed')
   document.getElementById('errorTitle').innerHTML = '<p class="errorRed">* Заполните имя</p>'
   document.getElementById('errorAuthors').innerHTML = '<p class="errorRed">* Заполните автора</p>'
@@ -155,6 +158,7 @@ function addBooks() {
   //если введены не все данные ошибки по очереди если что-то не введено
   if(bookTitleValue === ''){
     document.getElementById('errorTitle').innerHTML = '<p class="errorRed">* Заполните имя</p>'
+
     return
     }else{
       hideError('errorTitle')
